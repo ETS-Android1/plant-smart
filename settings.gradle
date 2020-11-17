@@ -1,0 +1,2 @@
+rootProject.name='Plant smart'
+include ':app'

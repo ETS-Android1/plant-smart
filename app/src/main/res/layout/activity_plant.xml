@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RealTimeMonActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/PlantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.8"
+            android:textSize="30dp"
+            android:textColor="#3F51B5"
+            android:textStyle="bold"
+            android:text="Plant Name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="PH">
+
+                <ImageView
+                    android:id="@+id/phPic"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/button_on"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/ph"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="8dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/phg"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="Light">
+
+                <ImageView
+                    android:id="@+id/lightPic"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/button_off"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/lightBulb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/lightbulbg"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="Temperature">
+
+                <ImageView
+                    android:id="@+id/tempPic"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/button_off"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/temperature"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/temperatureg"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="Moisture">
+
+                <ImageView
+                    android:id="@+id/moisturePic"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/button_off"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/water"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/waterg"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="rain">
+
+                <ImageView
+                    android:id="@+id/waterTankPic"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/button_off"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/tank"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/water_tankg"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/rel1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"
+                            android:alpha="0.8" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/systemContainer"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true">
+
+                        <ImageView
+                            android:id="@+id/StatusImage"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/off" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_back2"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="100"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarTop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_front"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/logo"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:alpha="0.8"
+                                android:layout_gravity="center"
+                                android:src="@drawable/phg"
+                                android:scaleType="fitXY" />
+
+
+                            <TextView
+                                android:id="@+id/CurrValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="27"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="bold"
+                                android:textSize="18dp"
+                                android:alpha="0.8" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+
+
+                        <TextView
+                            android:id="@+id/SystemNameStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="PH sensor"
+                            android:textColor="#ff320a"
+                            android:textStyle="bold"
+                            android:textSize="18dp"/>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rel2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/value2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"
+                            android:alpha="0.8" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/systemContainer2"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true">
+
+                        <ImageView
+                            android:id="@+id/StatusImage2"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/off" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_back2"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="100"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarTop2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_front"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/logo2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:alpha="0.8"
+                                android:layout_gravity="center"
+                                android:src="@drawable/phg"
+                                android:scaleType="fitXY" />
+
+
+                            <TextView
+                                android:id="@+id/CurrValue2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="27"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="bold"
+                                android:textSize="18dp"
+                                android:alpha="0.8" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/SystemNameStatus2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="PH sensor"
+                        android:textColor="#ff320a"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/rel3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/value3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"
+                            android:alpha="0.8" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/systemContainer3"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true">
+
+                        <ImageView
+                            android:id="@+id/StatusImage3"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/off" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_back2"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="100"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarTop3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_front"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/logo3"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:alpha="0.8"
+                                android:layout_gravity="center"
+                                android:src="@drawable/phg"
+                                android:scaleType="fitXY" />
+
+
+                            <TextView
+                                android:id="@+id/CurrValue3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="27"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="bold"
+                                android:textSize="18dp"
+                                android:alpha="0.8" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/SystemNameStatus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="PH sensor"
+                        android:textColor="#ff320a"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rel4"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:id="@+id/value4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"
+                            android:alpha="0.8" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/systemContainer4"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true">
+
+                        <ImageView
+                            android:id="@+id/StatusImage4"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/off" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_back2"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="100"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:alpha="0.8"
+                            android:layout_gravity="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarTop4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/progress_bar_style3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="0"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/button_front"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/logo4"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:alpha="0.8"
+                                android:layout_gravity="center"
+                                android:src="@drawable/phg"
+                                android:scaleType="fitXY" />
+
+
+                            <TextView
+                                android:id="@+id/CurrValue4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="27"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="bold"
+                                android:textSize="18dp"
+                                android:alpha="0.8" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/SystemNameStatus4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="PH sensor"
+                        android:textColor="#ff320a"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
